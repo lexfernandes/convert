@@ -41,8 +41,16 @@ function convertCurrency(amount, price, symbol) {
     description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`;
     //calcula o total
     let total = amount * price;
+
+    // verifica se o resultado e um número.
+    if (isNaN(total)) {
+      return alert("Por favor, digite o valor corretamente para converter");
+    }
+
+    // formatar o valor total
+    total = formatCurrencyBRL(total);
     //Exibe o resultado Total
-    result.textContent = total;
+    result.textContent = `${total} `;
 
     // Aplica a classe que exibe o footer para mostrar o resultado.
     footer.classList.add("show-result");
