@@ -1,8 +1,8 @@
 console.log("Funcionando");
 
-const USD = 4.87;
-const EUR = 5.32;
-const GBP = 6.08;
+const USD = 5.37;
+const EUR = 6.26;
+const GBP = 7.17;
 
 // obtendo os elementos do formularios.
 const form = document.querySelector("form");
@@ -10,6 +10,7 @@ const amount = document.getElementById("amount");
 const currency = document.getElementById("currency");
 const footer = document.querySelector("main footer");
 const description = document.getElementById("description");
+const result = document.getElementById("result");
 
 amount.addEventListener("input", () => {
   const hasCharactersRegex = /\D+/g;
@@ -38,6 +39,10 @@ function convertCurrency(amount, price, symbol) {
   try {
     // Exibindo a cotação da moeda selecionada.
     description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`;
+    //calcula o total
+    let total = amount * price;
+    //Exibe o resultado Total
+    result.textContent = total;
 
     // Aplica a classe que exibe o footer para mostrar o resultado.
     footer.classList.add("show-result");
